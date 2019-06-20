@@ -1,0 +1,24 @@
+Spring Faq
+==========
+0)what is IOC.
+1)How many injection are there in spring.
+2)How many container are there in spring.How to create a Container.
+3)What are  the different scopes are there in spring.
+4)what is Autowiring.
+5)what is the difference between ApplicationContext and BeanFactory.
+6)what is use of spring Lifecycle.
+7)Which injection is better and why.
+8)How to manage transaction in ur project.
+9)How to manage transaction in ur project if multiple services are there.
+10)What is Aop.
+11)what are the Advices are there in spring.
+12)what is Aspect.
+13)what is weaving.
+14)Can u explain the spring MVC flow.
+15)what are the advantages of spring MVC over Strut mvc.
+16)what are the Controller are there in spring.Which controller r u used in ur project.
+17)How to handle validation in ur project.
+18)How to handle Exception in ur project.
+19)what is the advantages of Spring orm over NormalJdbc.
+20)what is the use of Hibernate Template.
+21)what is the use of Form backing Objest in Spring MVC.

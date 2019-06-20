@@ -1,0 +1,68 @@
+package com.ca.dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCallback;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+
+import com.ca.bo.StudentBO;
+
+public class StudentDao {
+	// sql query
+	private final String SQL_GET_ALL_STUDENTS = "SELECT STUDENT_ID, NAME FROM STUDENT";
+	// code
+	private JdbcTemplate jdbcTemplate;
+
+	public StudentDao(JdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
+	}
+
+	public List<StudentBO> getAllStudents() {
+		List<StudentBO> students = null;
+		students = jdbcTemplate.execute(new StudentStmtCreator(),
+				new StudentStmtCallback());
+		return students;
+	}
+
+	/**
+	 * Creator phase
+	 */
+	private class StudentStmtCreator implements PreparedStatementCreator {
+		@Override
+		public PreparedStatement createPreparedStatement(Connection connection)
+				throws SQLException {
+			PreparedStatement pstmt = null;
+			pstmt = connection.prepareStatement(SQL_GET_ALL_STUDENTS);
+			return pstmt;
+		}
+	}
+
+	private class StudentStmtCallback implements
+			PreparedStatementCallback<List<StudentBO>> {
+
+		@Override
+		public List<StudentBO> doInPreparedStatement(PreparedStatement pstmt)
+				throws SQLException, DataAccessException {
+			List<StudentBO> students = null;
+			ResultSet rs = null;
+
+			rs = pstmt.executeQuery();
+			students = new ArrayList<StudentBO>();
+			while (rs.next()) {
+				students.add(new StudentBO(rs.getInt("STUDENT_ID"), rs
+						.getString("NAME")));
+			}
+
+			return students;
+		}
+
+	}
+
+}

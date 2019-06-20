@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="robot" name="r1,r2" class="com.ba.beans.Robot">
+		<property name="id" value="10" />
+		<property name="type" value="Andriod" />
+	</bean>
+	<alias name="r1" alias="r3,r4" />
+
+</beans>

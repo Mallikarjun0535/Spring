@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="passport1" class="com.idr.beans.IndiaPassportImpl">
+		<property name="passportNo" value="p1" />
+		<property name="issuer" value="hyderabad" />
+	</bean>
+
+	<bean id="person" class="com.idr.beans.Person">
+		<property name="id">
+			<idref bean="passport"/>
+		</property>
+		<property name="ssn" value="ssn1" />
+		<property name="name" value="john" />
+	</bean>
+
+</beans>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="calculator" class="com.cpe.beans.Calculator">
+		<!-- <property name="complexNumber" ref="complexNumber" /> -->
+		<property name="complexNumber" value="10,20"/>
+	</bean>
+
+	<!-- <bean id="complexNumber" class="com.cpe.beans.ComplexNumber">
+		<constructor-arg value="10" />
+		<constructor-arg value="20" />
+	</bean> -->
+</beans>

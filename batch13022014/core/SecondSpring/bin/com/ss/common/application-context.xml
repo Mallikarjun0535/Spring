@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="ebayShop" class="com.ss.beans.EbayShop">
+		<property name="courier" ref="bluedartCourier"/>
+	</bean>
+	<bean id="bluedartCourier" class="com.ss.beans.BluedartCourierImpl" />
+	<bean id="dtdcCourier" class="com.ss.beans.DTDCCourierImpl" />
+
+</beans>

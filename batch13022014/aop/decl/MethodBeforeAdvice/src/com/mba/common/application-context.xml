@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<bean id="loanApprover" class="com.mba.beans.LoanApprover" />
+	<bean id="auditAspect" class="com.mba.aspect.AuditAspect">
+		<property name="securityHelper" ref="securityHelper" />
+	</bean>
+	<bean id="securityHelper" class="com.mba.util.SecurityHelper" />
+
+	<aop:config>
+		<aop:pointcut expression="execution(* com.mba.beans.*.*(..))"
+			id="commonPointcut" />
+		<aop:aspect ref="auditAspect">
+			<aop:before method="audit" pointcut-ref="commonPointcut" />
+			<aop:before method="validateUser" pointcut-ref="commonPointcut" />
+		</aop:aspect>
+	</aop:config>
+
+</beans>

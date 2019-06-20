@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="appErrors" />
+	</bean>
+
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/register.htm">registrationController</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="registrationController" class="com.rd.controller.RegistrationController">
+		<property name="commandClass" value="com.rd.command.RegisterCommand" />
+		<property name="formView" value="register" />
+		<property name="validator" ref="registrationValidator" />
+	</bean>
+
+	<bean id="registrationValidator" class="com.rd.validator.RegistrationValidator" />
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+</beans>

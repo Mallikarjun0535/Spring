@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="ou" class="com.cdi.beans.University">
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="com.cdi.beans.Course">
+				<entry key="Hanuma">
+					<ref bean="btech1Yr1Sem"/>
+				</entry>
+				<entry key="Rama" value-ref="btech1Yr2Sem"/>								
+			</map>
+		</constructor-arg>
+		<property name="subjectTopper">
+			<props>
+				<prop key="c">Rama</prop>
+				<prop key="c++">Sita</prop>
+				<prop key="d.s">hanuma</prop>
+			</props>
+		</property>
+	</bean>
+	
+
+	<bean id="btech1Yr1Sem" class="com.cdi.beans.Course">
+		<constructor-arg>
+			<set value-type="java.lang.String">
+				<value>Rama</value>
+				<value>Sita</value>
+			</set>
+		</constructor-arg>
+		<property name="subjects">
+			<list value-type="java.lang.String">
+				<value>S.E</value>
+				<value>Java</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="btech1Yr2Sem" class="com.cdi.beans.Course">
+		<constructor-arg>
+			<set value-type="java.lang.String">
+				<value>Hanuma</value>
+				<value>Lakshmana</value>
+			</set>
+		</constructor-arg>
+		<property name="subjects">
+			<list value-type="java.lang.String">
+				<value>C</value>
+				<value>C++</value>
+				<value>D.S</value>
+			</list>
+		</property>
+	</bean>
+
+</beans>

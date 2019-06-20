@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="robot" class="com.ba.beans.Robot" autowire="constructor"/>
+
+	<bean id="bus" class="com.ba.beans.Bus">
+		<property name="type" value="sata cable" />
+	</bean>
+	
+	<bean id="chip1" class="com.ba.beans.Chip">
+		<property name="id" value="10" />
+		<property name="type" value="64-bit" />
+	</bean>
+
+
+
+	<!-- <bean id="chip2" class="com.ba.beans.Chip"> <property name="id" value="10" 
+		/> <property name="type" value="64-bit" /> </bean> -->
+
+</beans>

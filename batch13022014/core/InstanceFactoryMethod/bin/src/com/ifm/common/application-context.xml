@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="googleMapRenderer" class="com.ifm.beans.GoogleMapRenderer">
+		<property name="googleEngine" ref="indiaGoogleEngine" />
+	</bean>
+
+	<bean id="usGoogleEngine" factory-bean="googleEngineLocator"
+		factory-method="getUSGoogleEngine" />
+
+	<bean id="indiaGoogleEngine" factory-bean="googleEngineLocator"
+		factory-method="getIndiaGoogleEngine" />
+
+	<bean id="googleEngineLocator" class="com.ifm.beans.GoogleEngineLocator" />
+
+</beans>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="appErrors" />
+	</bean>
+
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/home.htm">viewHomeController</prop>
+				<prop key="/listusers.htm">listProfilesController</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/insert.htm">insertUserController</prop>
+				<prop key="/edit.htm">editUserController</prop>
+			</props>
+		</property>
+		<property name="interceptors">
+			<list>
+				<ref bean="showdownWindowInterceptor" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="showdownWindowInterceptor" class="com.um.interceptor.ShutdownWindowInterceptor" />
+
+
+	<bean id="viewHomeController"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController">
+		<property name="viewName" value="home" />
+	</bean>
+
+	<bean id="listProfilesController" class="com.um.controller.ListProfilesController">
+		<property name="service" ref="profileManagementService" />
+	</bean>
+
+	<bean id="insertUserController" class="com.um.controller.InsertUserController">
+		<property name="formView" value="insert" />
+		<property name="commandClass" value="com.um.command.UserCommand" />
+		<property name="commandName" value="userCmd" />
+		<property name="validator" ref="userValidator" />
+		<property name="profileService" ref="profileManagementService" />
+	</bean>
+
+	<bean id="editUserController" class="com.um.controller.EditUserController">
+		<property name="formView" value="edit" />
+		<property name="commandClass" value="com.um.command.UserCommand" />
+		<property name="commandName" value="userCmd" />
+		<property name="validator" ref="userValidator" />
+		<property name="profileService" ref="profileManagementService" />
+	</bean>
+
+	<bean id="userValidator" class="com.um.validator.UserValidator" />
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+</beans>

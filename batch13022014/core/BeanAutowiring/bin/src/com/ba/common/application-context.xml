@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="motor" class="com.ba.beans.Motor" autowire="constructor"/>
+	
+	<bean id="engine1" class="com.ba.beans.Engine">
+		<property name="id" value="24" />
+		<property name="fuelType" value="diesel" />
+	</bean>
+	
+	<bean id="belt" class="com.ba.beans.Belt">
+		<property name="type" value="metal"/>
+	</bean>
+	
+	<!-- <bean id="engine2" class="com.ba.beans.Engine">
+		<property name="id" value="24" />
+		<property name="fuelType" value="diesel" />
+	</bean> -->
+
+</beans>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="baseBean" abstract="true">
+		<property name="make" value="benze" />
+		<property name="model" value="C-Class" />
+		<property name="fuelType" value="Diesel" />
+		<property name="color" value="red" />
+	</bean>
+
+	<bean id="car" class="com.bi.beans.Car" parent="baseBean">
+		<property name="id" value="1" />
+	</bean>
+
+	<bean id="bus" class="com.bi.beans.Bus" parent="baseBean">
+		<property name="id" value="2" />
+		<property name="model" value="Benze Bus" />
+		<property name="capacity" value="2424.2" />
+	</bean>
+
+</beans>

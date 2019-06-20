@@ -1,0 +1,20 @@
+n the interview they are asking questions from core java, spring, hibernate and web services like-
+1-what type of web services you have used in your project?
+2-do you have any experience on parsing technologies?
+3-what is the wsdl , what it contains. what are the different sections of wsdl file can you      explain in details.
+4-what is singleton design pattern . where did you use singleton class in your project ?
+   can you write any singleton class.
+5-what is strategy design pattern how it works and what are the benefits of using this          design patter.
+6-do you have knowledge about Restful Web Service, what is the resource .
+7-how can you get information from a resource what are the various way to get the              information from the resource. 
+8-what is depency injection ?
+9- what are the bean scope .
+10-Is there any benefil to make an class as singleton explicitly while spring provides by     default all beans as signleton.
+11-how aop internally works?
+12-can you tell me spring mvc flow of control and how it works?
+13-can you write web.xml file of spring?
+14-what are the controller available in spring can you list down.
+15-without using serial version uid is it possible to serialize any obj. if it is possible           then how you recognize the same obj while deserializing.
+16-what are the caching in hibernate , how many type caching hibernate supports.
+17-what are the differences between get() and load()?
+18-what are the annotations you have used in hibernate?
